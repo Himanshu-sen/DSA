@@ -5,11 +5,10 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        idx = list()
-        for i in range(len(nums)-1):
-            for j in range(i+1,len(nums)):
-                if nums[i]+nums[j]==target:
-                    idx.append(i)
-                    idx.append(j)
-                    return idx
-        return idx
+        hashmap = {}
+        for i, n in enumerate(nums):
+            diff = target - n
+            if diff in hashmap:
+                return [hashmap[diff], i]
+            hashmap[n] = i
+        return 0
