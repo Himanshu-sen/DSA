@@ -4,11 +4,11 @@ class Solution(object):
         :type strs: List[str]
         :rtype: List[List[str]]
         """
-        result = defaultdict(list)
+        anagrams = {}
         for s in strs:
-            count = [0]*26
-            for c in s:
-                count[ord(c)-ord('a')] +=1
-            result[tuple(count)].append(s)
-        return result.values()
+            key = ''.join(sorted(s)) 
+            if key not in anagrams:
+                anagrams[key] = []
+            anagrams[key].append(s)
+        return list(anagrams.values())
         
