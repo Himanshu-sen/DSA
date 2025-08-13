@@ -8,5 +8,13 @@ class Solution(object):
         for i in s:
             if i.isalnum():
                 ns+=i.lower()
-        return ns == ns[::-1]
+        start = 0
+        end = len(ns)-1
+        while start<end:
+            if ns[start]==ns[end]:
+                start+=1
+                end = end - 1
+            else:
+                return False
+        return True
         
