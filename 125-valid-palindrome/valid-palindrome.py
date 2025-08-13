@@ -4,17 +4,9 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        ns = ''
-        for i in s:
-            if i.isalnum():
-                ns+=i.lower()
-        start = 0
-        end = len(ns)-1
-        while start<end:
-            if ns[start]==ns[end]:
-                start+=1
-                end = end - 1
-            else:
-                return False
-        return True
+        s = s.replace(' ','')
+        for i in string.punctuation:
+            s = s.replace(i,'')
+        s = s.lower()
+        return s == s[::-1]
         
