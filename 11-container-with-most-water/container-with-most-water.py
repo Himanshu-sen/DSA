@@ -10,7 +10,7 @@ class Solution(object):
         while start < end:
             area = min(heights[start], heights[end])*(end - start)
             res = max(res, area)
-            if heights[start]<=heights[end]:
+            if heights[start]<heights[end]:
                 start+=1
             else:
                 end-=1
