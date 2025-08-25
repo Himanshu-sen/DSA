@@ -4,13 +4,10 @@ class Solution(object):
         :type prices: List[int]
         :rtype: int
         """
-        start, end = 0, 1
+        minbuy = prices[0]
         maxp = 0
-        while end < len(prices):
-            if prices[start] < prices[end]:
-                maxp = max(maxp, prices[end] - prices[start])
-            else:
-                start = end
-            end+=1
+        for sell in prices:
+            maxp = max(maxp,sell - minbuy)
+            minbuy = min(sell, minbuy)
         return maxp
         
