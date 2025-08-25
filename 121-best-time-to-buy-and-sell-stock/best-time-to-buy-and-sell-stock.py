@@ -13,5 +13,5 @@ class Solution(object):
                 start = end
             end+=1
         return maxp
-__import__("atexit").register(lambda: open("display_runtime.txt","w").write("0"))
+
         
