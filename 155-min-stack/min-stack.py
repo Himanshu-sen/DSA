@@ -31,7 +31,8 @@ class MinStack(object):
         """
         :rtype: int
         """
-        return min(self.stack)
+        s=sorted(self.stack)
+        return s[0]
         
 
 
