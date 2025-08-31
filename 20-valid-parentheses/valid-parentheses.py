@@ -4,9 +4,13 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        while '()' in s or '{}' in s or '[]' in s:
-            s = s. replace('()','')
-            s = s. replace('{}','')
-            s = s. replace('[]','')
-        return s == ''
-        
+        stack = []
+        checker = {')':'(', ']':'[', '}':'{'}
+        for i in s:
+            if i in checker:
+                x = stack.pop() if stack else "#"
+                if checker[i] != x:
+                    return False
+            else:
+                stack.append(i)
+        return not stack       
